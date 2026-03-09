@@ -1,3 +1,7 @@
+.hide {
+    display: none;
+}
+
 /* #region base */
 ul,
 li {
@@ -60,10 +64,28 @@ img {
 }
 
 .container {
-    width: 1158px;
-    padding: 0 15px;
+    min-width: 320px;
+    max-width: 320px;
+    padding: 0 16px;
     margin: 0 auto;
+
+    outline: 2px solid red;
+    outline-offset: -2px;;
+} 
+
+@media screen and (min-width: 768px){
+    .container {
+        max-width: 768px;
+    }
 }
+
+@media screen and (min-width: 1158px){
+    .container {
+        max-width: 1158px;
+        padding: 0 15px;
+    }
+}
+
 /* #endregion */
 
 .logo {
@@ -79,10 +101,18 @@ img {
 }
 
 .section {
-    padding-bottom: 120px;
-    padding-top: 120px;
+    padding-bottom: 96px;
+    padding-top: 96px;
+
 }
 
+@media only screen and (min-width: 1158px) {
+  .section {
+    padding-bottom: 120px;
+    padding-top: 120px;
+  }
+
+}
 .header-logo .logo-part {
     color: #2e2f42;
 }
@@ -182,8 +212,8 @@ img {
 /* #region Hero */
 .hero
  {
-    max-width: 1440px;
-    margin: 0 auto;
+    /* max-width: 1440px;
+    margin: 0 auto; */
     background-color: #2e2f42;
     padding: 188px 0;
     background-image: 
@@ -302,8 +332,27 @@ img {
 
 .our-team-menu {
     display: flex;
-    justify-content: center;
-    gap: 24px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    gap: 72px;
+}
+
+@media only screen and (min-width: 767.98px) {
+  .our-team-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* gap: 32px; */
+    gap: 64px 24px;
+    padding: 108px 96px;
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+    .our-team-menu {
+        gap: 24px;
+        padding: 120px 0px;
+    }
 }
 
 .our-team-wrapper > .team-title {
@@ -313,8 +362,20 @@ img {
 .our-team-item {
     background-color: #fff;
     border-radius: 0 0 4px 4px;
-    width: calc((100% - 24px * 3) / 4);
+    /* width: 264px; */
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+@media only screen and (min-width: 768px) {
+.our-team-item {
+    width: calc((100% - 32px * 1) / 2);
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+    .our-team-item {
+        width: calc((100% - 32px * 3) / 4);
+    }
 }
 
 .our-team-member {
@@ -329,6 +390,8 @@ img {
 .team-content {
     padding: 32px 16px;
 }
+
+
 
 .our-team-position {
     text-align: center;
