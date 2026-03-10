@@ -16,6 +16,10 @@ body {
     background-color: #fff;
 }
 
+body:has(.mobile-menu.is-open) {
+    overflow-y: hidden;
+}
+
 a {
     text-decoration: none;
     color: currentColor;
@@ -89,7 +93,7 @@ img {
 /* #endregion */
 
 .logo {
-    margin-right: 76px;
+    margin-right: 149px;
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -98,6 +102,12 @@ img {
     text-transform: uppercase;
     color: #4d5ae5;
 
+}
+
+@media only screen and (min-width: 767.98px) {
+.logo {
+    margin-right: 76px;
+  }
 }
 
 .section {
@@ -132,6 +142,8 @@ img {
     align-items: center;
 }
 
+
+
 .nav-menu {
     display: flex;
     align-items: flex-start;
@@ -141,13 +153,37 @@ img {
       
 }
 
+@media only screen and (max-width: 767.98px) {
+    .nav-menu {
+        display: none;
+    
+  }
+}
+
+
 .contacts {
     margin-left: auto;
 }
 
+@media only screen and (max-width: 767.98px) {
+  .contacts {
+    display: none;
+  }
+}
+
 .contacts-list {
     display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+@media only screen and (min-width: 1158px) {
+.contacts-list {
+    display: flex;
+    flex-direction: row;
     gap: 40px;
+  }
 }
 
 .nav-menu-link {
@@ -181,7 +217,8 @@ img {
 .nav-menu-link:focus,
 .contacts-link:hover,
 .contacts-link:focus,
-.nav-menu-link.current {
+.nav-menu-link.current,
+.mobile-menu-nav-link.current {
     color: #404bbf;
 }
 
@@ -194,6 +231,17 @@ img {
     color: #434455;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1157.98px) {
+.contacts-link {
+        padding: 0px;
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.04em;
+    }
+
+}
+
 
 /* #region Footer */
 .footer-logo .logo-part {
@@ -326,18 +374,25 @@ img {
 .features-item-name {
     font-weight: 700;
     font-size: 36px;
-    margin-bottom: 8px;
     line-height: 1.11;
     letter-spacing: 0.02em;
     text-align: center;
-    /* margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
-    letter-spacing: 0.02em; */
+    margin-bottom: 8px;
 }
 
+@media only screen and (min-width: 768px) {
+  .features-item-name {
+    text-align: left;
+  }
+}
 
+@media only screen and (min-width: 1158px) {
+    .features-item-name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
 
 .features-item-text {
     font-weight: 500;
@@ -345,6 +400,13 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
 }
+
+@media only screen and (min-width: 1158px) {
+  .features-item-text {
+    font-weight: 400;
+  }
+}
+
 
 .features-item {
     width: 100%;
@@ -473,14 +535,48 @@ img {
 
 .portfolio-menu {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 72px;
+} 
+
+ @media only screen and (min-width: 768px) {
+  .portfolio-menu {
+    display: flex;
     flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 48px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 24px;
+  }
 }
 
+@media only screen and (min-width: 1158px) {
+    .portfolio-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 48px;
+    }
+} 
+
 .portfolio-item {
-    width: calc((100% - 24px * 2) / 3);
+    width: 100%;
+    /* width: calc((100% - 24px * 2) / 3); */
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media only screen and (min-width: 767.98px) {
+  .portfolio-item {
+    width: calc((100% - 24px * 1) / 2);
+  }
+}
+
+@media only screen and (min-width: 1158px) {
+    .portfolio-item {
+        width: calc((100% - 24px * 2) / 3);
+    }
 }
 
 .portfolio-content {
@@ -488,6 +584,12 @@ img {
     border: 1px solid #e7e9fc;
     border-top: none;
 }
+
+/* @media only screen and (min-width: 320px) {
+  .portfolio-content {
+    padding: 0;
+  }
+} */
 
 .portfolio-title {
     margin-bottom: 72px;
@@ -535,7 +637,6 @@ img {
     transform: translateY(0);
     
 }
-
 
 .portfolio-item-name {
     font-weight: 500;
@@ -615,6 +716,7 @@ img {
     display: flex;
     gap: 24px;
 }
+
 
 .footer-subscribe {
     width: 453px;
@@ -852,7 +954,7 @@ img {
     justify-content: flex-start;
     flex-direction: row;
     gap: 8px;
-    /* margin-bottom: 24px; */
+
     font-weight: 400;
     font-size: 12px;
     line-height: 1.33;
@@ -907,3 +1009,113 @@ img {
 }
 
 /* #endregion */
+
+/* #region mobile menu */
+
+.mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0px;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+.mobile-menu-btn {
+    display: none;
+  }
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    padding: 72px 16px 40px;
+
+    transform: translateX(100%);
+    transition: transform 300ms ease-out;
+}
+
+.mobile-menu.is-open {
+    transform: translateX(0);
+}
+
+.mobile-menu-close{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+        position: absolute;
+        background-color: #e7e9fc;
+        border-radius: 4px;
+        height: 24px;
+        width: 24px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        top: 24px;
+        right: 24px;
+        fill: #2e2f42;
+        transition: fill 250ms
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile-menu-close {
+        display: none;
+    }
+}
+
+.mobile-button-icon {}
+
+.mobile-menu-nav {
+    margin-bottom: auto;
+}
+
+.mobile-menu-nav-item {}
+
+.mobile-menu-nav-item:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.mobile-menu-nav-link {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11111;
+    letter-spacing: 0.02em;
+}
+
+.mobile-menu-contacts {
+    margin-bottom: 48px;
+}
+
+.mobile-menu-contacts-item {}
+
+.mobile-menu-contacts-item:not(:last-child) {
+    margin-bottom: 24px;
+}
+
+.mobile-menu-contacts-link {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.mobile-menu-contacts-item:first-child .mobile-menu-contacts-link {
+    color: #4d5ae5;
+}
+
+.mobile-social {
+    gap: 40px;
+}
+
+
+/* #endregion */
+
+
