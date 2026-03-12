@@ -186,6 +186,13 @@ img {
   }
 }
 
+@media only screen and (min-width: 767.98px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+
 @media screen and (min-width:768px) {
     .nav-menu {
         margin-right: 40px;
