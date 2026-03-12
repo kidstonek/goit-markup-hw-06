@@ -308,6 +308,7 @@ img {
 
 @media only screen and (min-width: 768px) {
   .hero {
+        padding: 112px 0;
         background-image:
                 linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
                 url(../images/hero-bg_tab@1x.jpg);
@@ -715,7 +716,7 @@ img {
     height: 280px; */
     width: 100%;
     height: auto;
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
 }
 
 /* @media only screen and (min-width: 768px) {
@@ -887,18 +888,30 @@ img {
     /* align-items: baseline; */
 }
 
-@media screen and (min-width: 768px) {
+ /* @media screen and (min-width: 768px) {
 
     .footer-flex {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 72px 24px;
         align-items: flex-start;
-        /* justify-content: flex-start; */
+        justify-content: flex-start;
         justify-content: center;
-        /* gap: 72px; */ 
+        gap: 72px; 
     }
 
+}  */
+
+@media screen and (min-width: 768px) and (max-width: 1157.98px) {
+    .footer-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 72px;
+        align-items: baseline;
+        width: 552px;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (min-width: 1158px) {
@@ -910,7 +923,8 @@ img {
         flex-direction: row;
         align-items: baseline;
         justify-content: flex-start;
-        gap: 80px;
+        /* gap: 80px; */
+        gap: 120px;
     }
     
 
@@ -1002,11 +1016,13 @@ img {
 @media screen and (min-width:768px) {
 
     .footer-subscribe {
-        flex-basis: 100%;
-        align-items: flex-start;
+                flex-basis: 100%;
+                    align-items: flex-start;
+                    text-align: left;
+                    /* margin-left: 108px; */
 
-            margin-left: 108px;
-            text-align: left;
+            /* margin-left: 108px; */
+            /* text-align: left; */
     }
 
 }
@@ -1015,9 +1031,9 @@ img {
 @media screen and (min-width:1158px) {
 
     .footer-subscribe {
-    flex-basis: auto;
+        flex-basis: auto;
         /* width: 453px; */
-        margin-left: 0;
+        margin-left: auto;
     }
 
 }
@@ -1429,6 +1445,9 @@ img {
     margin-bottom: 48px;
 }
 
+.mobile-menu-address {
+    font-style: normal;
+}
 .mobile-menu-contacts-item {}
 
 .mobile-menu-contacts-item:not(:last-child) {
